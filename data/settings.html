@@ -1,0 +1,427 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ESP32 - Camera Settings</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="stylesheet" type="text/css" href="/settings.css">
+
+</head>
+
+<body>
+    <section class="main">
+        <div id="content">
+            <div class="mqtt">
+                <h2>MQTT Settings</h2>
+                <div class="mqtt_settings">
+                    <div class="input-group">
+                        <label for="mqtt_host">Host</label>
+                        <input type="text" id="mqtt_host" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="mqtt_port">Port</label>
+                        <input type="text" id="mqtt_port" placeholder="1883/8883" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="wifi_settings">User</label>
+                        <input type="text" id="mqtt_user" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="mqtt_pass">Password</label>
+                        <input type="password" id="mqtt_pass" placeholder="*************">
+                    </div>
+                    <div class="input-group">
+                        <label for="mqtt_topic">Topic</label>
+                        <input type="text" id="mqtt_topic" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="mqtt_freq">Frequency</label>
+                        <input type="text" id="mqtt_frequency" class="setting-elem">
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="mqtt_clear" title="Clear MQTT configuration from device">Clear</button>
+                        <button id="mqtt_save" title="Save MQTT configuration to device">Save</button>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="input-group">
+                        <label for="mqtt_ca_file">CA File</label>
+                        <input type="file" id="mqtt_ca_file"></input>
+                    </div>
+                    <div class="input-group">
+                        <label for="mqtt_crt_file">Client CRT File</label>
+                        <input type="file" id="mqtt_crt_file"></input>
+                    </div>
+                    <div class="input-group">
+                        <label for="mqtt_key_file">Client Key File</label>
+                        <input type="file" id="mqtt_key_file"></input>
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="mqtt_upload" title="Upload MQTT SSL files to device">Upload</button>
+                    </div>
+                </div>
+            </div>
+            <div class="update">
+                <h2>Update Settings</h2>
+                <div class="udpate_settings">
+                    <div class="input-group">
+                        <label for="update_proto">Protocol</label>
+                        <select id="update_proto" class="setting-elem">
+                            <option value="http" selected="selected">HTTP</option>
+                            <option value="https" selected="selected">HTTPS </option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="update_host">Host</label>
+                        <input type="text" id="update_host" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="update_port">Port</label>
+                        <input type="text" id="update_port" placeholder="5000" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="update_topic">Topic</label>
+                        <input type="text" id="update_topic" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="update_user">User</label>
+                        <input type="text" id="update_user" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="update_pass">Password</label>
+                        <input type="password" id="update_pass" placeholder="*************">
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="update_clear" title="Clear Update configuration from device">Clear</button>
+                        <button id="update_save" title="Save Update configuration to device">Save</button>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="input-group">
+                        <label for="update_ca_file">CA File</label>
+                        <input type="file" id="update_ca_file"></input>
+                    </div>
+                    <div class="input-group">
+                        <label for="update_crt_file">Client CRT File</label>
+                        <input type="file" id="update_crt_file"></input>
+                    </div>
+                    <div class="input-group">
+                        <label for="update_key_file">Client Key File</label>
+                        <input type="file" id="update_key_file"></input>
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="update_upload" title="Upload Update Server SSL files to device">Upload</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="plat">
+                    <h2>Platform Settings</h2>
+                    <div class="input-group">
+                        <label for="plat_platform">Platform</label>
+                        <input type="text" id="plat_platform" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="plat_version">Version</label>
+                        <input type="text" id="plat_version" disabled="disabled" class="setting-elem">
+                    </div>
+                    <div class="input-group">
+                        <label for="module_name">Module Name</label>
+                        <input type="text" id="module_name" class="setting-elem">
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="plat_clear" title="Clear Platform settings from device">Clear</button>
+                        <button id="plat_save" title="Save Platform settings to device">Save</button>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="input-group">
+                        <label for="plat_bin">BIN File</label>
+                        <input type="file" id="plat_bin"></input>
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="plat_bin_upload" title="Upload BIN file to device">Upload</button>
+                    </div>
+                    <div class="input-group">
+                        <label for="plat_img">IMG File</label>
+                        <input type="file" id="plat_img"></input>
+                    </div>
+                    <div class="input-group button-group">
+                        <button id="plat_img_upload" title="Upload IMG file to device">Upload</button>
+                    </div>
+                </div>
+                <br />
+                <div class="wifi">
+                    <div class="wifi_settings">
+                        <h2>WiFi Settings</h2>
+                        <div class="input-group">
+                            <label for="wifi_ssid">SSID</label>
+                            <input type="text" id="wifi_ssid" class="setting-elem">
+                        </div>
+                        <div class="input-group">
+                            <label for="wifi_pass">Password</label>
+                            <input type="password" id="wifi_pass" placeholder="*************">
+                        </div>
+                        <div class="input-group button-group">
+                            <button id="wifi_clear" title="Clear WiFi configuration from device">Clear</button>
+                            <button id="wifi_save" title="Save WiFi settings to device">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+        var baseHost = document.location.origin;
+
+        document.getElementById('mqtt_save').onclick = () => {
+            const host = document.getElementById('mqtt_host').value;
+            const port = document.getElementById('mqtt_port').value;
+            const user = document.getElementById('mqtt_user').value;
+            const pass = document.getElementById('mqtt_pass').value;
+            const topic = document.getElementById('mqtt_topic').value;
+            const freq = document.getElementById('mqtt_frequency').value;
+
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'MQTT',
+                        mqtt_host: `${host}`,
+                        mqtt_port: port,
+                        mqtt_user: `${user}`,
+                        mqtt_pass: `${pass}`,
+                        mqtt_topic: `${topic}`,
+                        mqtt_frequency: `${freq}`
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('update_save').onclick = () => {
+            const proto = document.getElementById('update_proto').value;
+            const host = document.getElementById('update_host').value;
+            const port = document.getElementById('update_port').value;
+            const user = document.getElementById('update_user').value;
+            const pass = document.getElementById('update_pass').value;
+            const topic = document.getElementById('update_topic').value;
+
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'Update',
+                        update_proto: `${proto}`,
+                        update_host: `${host}`,
+                        update_port: port,
+                        update_user: `${user}`,
+                        update_pass: `${pass}`,
+                        update_topic: `${topic}`
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('plat_save').onclick = () => {
+            const module_name = document.getElementById('module_name').value;
+            const plat_platform = document.getElementById('plat_platform').value;
+
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'Platform',
+                        module_name: `${module_name}`,
+                        plat_platform: `${plat_platform}`,
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('wifi_save').onclick = () => {
+            const ssid = document.getElementById('wifi_ssid').value;
+            const pass = document.getElementById('wifi_pass').value;
+
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'WiFi',
+                        ssid: `${ssid}`,
+                        pass: `${pass}`
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('mqtt_upload').onclick = () => {
+            const ca = document.getElementById('mqtt_ca_file');
+            const crt = document.getElementById('mqtt_crt_file');
+            const key = document.getElementById('mqtt_key_file');
+
+            var data = new FormData()
+            data.append('file', ca.files[0])
+            fetch(`${baseHost}/file?type=mqtt_ca`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+            data = new FormData()
+            data.append('file', crt.files[0])
+            fetch(`${baseHost}/file?type=mqtt_crt`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+            data = new FormData()
+            data.append('file', key.files[0])
+            fetch(`${baseHost}/file?type=mqtt_key`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('update_upload').onclick = () => {
+            const ca = document.getElementById('update_ca_file');
+            const crt = document.getElementById('update_crt_file');
+            const key = document.getElementById('update_key_file');
+
+            var data = new FormData()
+            data.append('file', ca.files[0])
+            fetch(`${baseHost}/file?type=update_ca`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+            data = new FormData()
+            data.append('file', crt.files[0])
+            fetch(`${baseHost}/file?type=update_crt`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+            data = new FormData()
+            data.append('file', key.files[0])
+            fetch(`${baseHost}/file?type=update_key`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('plat_bin_upload').onclick = () => {
+            const bin = document.getElementById('plat_bin');
+
+            var data = new FormData()
+            data.append('file', bin.files[0])
+            fetch(`${baseHost}/firmware?type=FLASH`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('plat_img_upload').onclick = () => {
+            const img = document.getElementById('plat_img');
+
+            var data = new FormData()
+            data.append('file', img.files[0])
+            fetch(`${baseHost}/firmware?type=SPIFFS`, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+        }
+
+        document.getElementById('wifi_clear').onclick = () => {
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        type: 'Clear_WiFi',
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+        }
+
+        document.getElementById('mqtt_clear').onclick = () => {
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        type: 'Clear_MQTT',
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+        }
+
+        document.getElementById('update_clear').onclick = () => {
+            fetch(`${baseHost}/api/settings`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        type: 'Clear_Update',
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+        }
+
+        fetch(`${baseHost}/api/settings`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                document
+                    .querySelectorAll('.setting-elem')
+                    .forEach(el => {
+                        el.value = json[el.id];
+                    })
+            })
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #181818;
+    color: #EFEFEF;
+    font-size: 16px;
+}
+
+section.main {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#content {
+    display: flex;
+    height: 100%;
+    width: 75%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    color: #EFEFEF;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+.input-group {
+    padding-bottom: 5px;
+}
+
+.setting-elem {
+    display: flex;
+    flex-wrap: nowrap;
+    line-height: 22px;
+    margin: 5px 0
+}
+
+.setting-elem>label {
+    padding-right: 10px;
+    min-width: 47%
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 3px;
+    padding: 0 8px;
+    border: 0;
+    line-height: 28px;
+    cursor: pointer;
+    color: #fff;
+    background: #ff3034;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: 0;
+}
+
+button:hover {
+    background: #ff494d;
+}
+
+button:active {
+    background: #f21c21;
+}
+
+button.disabled {
+    cursor: default;
+    background: #a0a0a0;
+}
+
+input[type=text],
+input[type=password],
+input[type=select] {
+    border: 1px solid #363636;
+    font-size: 14px;
+    height: 20px;
+    margin: 1px;
+    outline: 0;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.loader {
+    border: 0.5em solid #f3f3f3;
+    /* Light grey */
+    border-top: 0.5em solid #000000;
+    /* white */
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    /* Safari */
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
